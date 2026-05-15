@@ -1,4 +1,4 @@
-import { LinkedList } from "../linkedList.js";
+import { BalancedBST } from "../balanced-bst.js";
 
 describe('Stuff here', () => {
     it('Exists', () => {
