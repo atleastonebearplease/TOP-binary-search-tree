@@ -4,6 +4,7 @@
   "main": "./src/popup.js",
   "scripts": {
     "dev:test": "jest --watchAll --verbose",
+    "dev:test-silent": "jest --watchAll --verbose --silent",
     "test": "jest --watchAll=false --verbose",
     "debug": "node --debug-brk --inspect ./node_modules/jest/bin/jest -i"
   },

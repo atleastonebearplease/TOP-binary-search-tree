@@ -1,0 +1,17 @@
+☐ buildTree()
+Takes an array of numbers, sorts and removes duplicates, and then creates a balanced BST full of Node objects
+appropriately placed
+    ✔ Go find the resources provided that show you the algorithm for the tree @done(26-05-16 11:04)
+    ☐ Build the tree function
+    ☐ Write tests for sorted and duplicates (They should all equal the same array as the initial test)
+    ☐ Sort any function that is input
+    ☐ Remove duplicates (using set?)
+
+
+
+
+
+
+
+
+Thinking: 
