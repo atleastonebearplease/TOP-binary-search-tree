@@ -4,14 +4,13 @@ export class Tree {
     }
 
     buildTree(arr) {
-        /* 
-        Sort array
-        Remove duplicates in array
-        Call sortedArrayToBST
-        return root node
-        */
+        arr.sort();
 
-        return this.#sortedArrayToBST(arr);
+        arr = [...new Set(arr)]; //Combine set, which removes duplicates, with spread operator
+        console.log(arr);
+
+        this.root = this.#sortedArrayToBST(arr);
+        return this.root;
     }
 
     #sortedArrayToBST(arr) {
@@ -53,3 +52,17 @@ export const prettyPrint = (node, prefix = '', isLeft = true) => {
 let tree = new Tree([1, 2, 3, 4, 5, 6, 7, 8, 9]);
 
 prettyPrint(tree.root);
+console.log("Sorted\n\n");
+
+
+tree.buildTree([9,1,8,2,7,3,6,4,5]);
+prettyPrint(tree.root);
+console.log("Unsorted\n\n");
+
+tree.buildTree([9,9,1,8,2,7,3,8,6,4,5]);
+prettyPrint(tree.root);
+console.log("Duplicate Unsorted\n\n");
+
+tree.buildTree([1, 2, 2, 3, 4, 4, 4, 4, 4, 4, 4, 5, 5, 6, 7, 8, 9, 9]);
+prettyPrint(tree.root);    
+console.log("Duplicate Sorted\n\n");
