@@ -2,11 +2,22 @@
 Takes an array of numbers, sorts and removes duplicates, and then creates a balanced BST full of Node objects
 appropriately placed
     ✔ Go find the resources provided that show you the algorithm for the tree @done(26-05-16 11:04)
-    ☐ Build the tree function
-    ☐ Write tests for sorted and duplicates (They should all equal the same array as the initial test)
-    ☐ Sort any function that is input
-    ☐ Remove duplicates (using set?)
+    ✔ Build the tree function @done(26-05-16 11:05)
+    ✔ Write tests for sorted and duplicates (They should all equal the same array as the initial test) @done(26-05-16 11:17)
+    ✔ Sort any function that is input @done(26-05-16 11:23)
+    ✔ Remove duplicates (using set?) @done(26-05-16 11:23)
 
+    ☐ includes(value)
+    ☐ insert(value)
+    ☐ deleteItem(value)
+    ☐ levelOrderForEach(callback)
+    ☐ inOrderForEach(callback)
+    ☐ preOrderForEach(callback)
+    ☐ postOrderForEach(callback)
+    ☐ height(value)
+    ☐ depth(value)
+    ☐ isBalanced()
+    ☐ rebalance()
 
 
 
