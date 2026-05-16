@@ -13,6 +13,23 @@ export class Tree {
         return this.root;
     }
 
+    includes(value) {
+        if(!this.root) return false; //BST is empty
+        let node = this.root;
+
+        while(node) {
+            if(value === node.data) return true;
+
+            if(value < node.data) {
+                node = node.left;
+            } else {
+                node = node.right;
+            }
+        }
+
+        return false;
+    }
+
     #sortedArrayToBST(arr) {
         return this.#sortedArrayToBSTRecur(arr, 0, arr.length - 1);
     }

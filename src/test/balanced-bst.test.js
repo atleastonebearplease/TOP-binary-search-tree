@@ -30,6 +30,16 @@ describe('Balanced BST', () => {
             expect(tree.root.data).toEqual(5);
         });
     });
+
+    describe('includes()', () => {
+        it('Returns true if value is present', () => {
+            expect(tree.includes(9)).toEqual(true);
+        });
+
+        it('Returns false if vallue is not present', () => {
+            expect(tree.includes(90)).toEqual(false);
+        });
+    });
 });
 
 
