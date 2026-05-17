@@ -8,8 +8,8 @@ appropriately placed
     ✔ Remove duplicates (using set?) @done(26-05-16 11:23)
 
     ✔ includes(value) @done(26-05-16 11:35)
-    ☐ insert(value)
-    ☐ deleteItem(value)
+    ✔ insert(value) @done(26-05-17 11:31)
+    ✔ deleteItem(value) @done(26-05-17 17:25)
     ☐ levelOrderForEach(callback)
     ☐ inOrderForEach(callback)
     ☐ preOrderForEach(callback)

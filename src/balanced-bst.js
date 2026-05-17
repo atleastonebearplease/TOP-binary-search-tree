@@ -60,6 +60,41 @@ export class Tree {
         }
     }
 
+    delete(value) {
+        this.root = this.#deleteNodeRecur(this.root, value);
+    }
+
+    #deleteNodeRecur(root, x) {
+        if(root === null)
+            return root;
+
+        if(root.data > x)
+            root.left = this.#deleteNodeRecur(root.left, x);
+        else if(root.data < x)
+            root.right = this.#deleteNodeRecur(root.right, x);
+        else {
+            if(root.left === null)
+                return root.right;
+            if(root.right === null)
+                return root.left;
+
+            //Node with 2 children
+            const succ = this.#getSuccessor(root);
+            root.data = succ.data;
+            root.right = this.#deleteNodeRecur(root.right, succ.data);
+        }
+        
+        return root;
+    }
+
+    #getSuccessor(curr) {
+        curr = curr.right;
+        while(curr !== null && curr.left !== null)
+            curr = curr.left;
+
+        return curr;
+    }
+
     #sortedArrayToBST(arr) {
         return this.#sortedArrayToBSTRecur(arr, 0, arr.length - 1);
     }

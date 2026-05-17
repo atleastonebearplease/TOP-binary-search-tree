@@ -56,8 +56,39 @@ describe('Balanced BST', () => {
         });
 
         it('Does nothing when a value that exists is inserted', () => {
+            tree.insert(9);
+            console.log(prettyPrint(tree.root));
             //TODO: Add check with a level order callback to count number of a value
             //Should always be one
+        });
+    });
+
+    describe('delete()', () => {
+        beforeEach(() => {
+            tree = new Tree([1, 2, 3, 4, 5, 6, 7, 8, 9]);
+        });
+        
+        it('Removes a leaf node from the tree', () => {
+            tree.delete(9);
+
+            expect(tree.includes(9)).toEqual(false);
+            console.log(prettyPrint(tree.root));
+        });
+
+        it('Removes a node with a single child', () => {
+            tree.delete(8);
+            expect(tree.includes(8)).toEqual(false);
+            expect(tree.includes(9)).toEqual(true);
+            console.log(prettyPrint(tree.root));
+        }); 
+
+        it('Removes a node with two children', () => {
+            tree.delete(7);
+            expect(tree.includes(7)).toEqual(false);
+            expect(tree.includes(8)).toEqual(true);
+            expect(tree.includes(9)).toEqual(true);
+            expect(tree.includes(6)).toEqual(true);
+            console.log(prettyPrint(tree.root));
         });
     });
 });
