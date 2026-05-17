@@ -40,6 +40,26 @@ describe('Balanced BST', () => {
             expect(tree.includes(90)).toEqual(false);
         });
     });
+
+    describe('insert()', () => {
+        it('Inserts a value into the tree', () => {
+            tree.insert(10);
+            tree.insert(80);
+            tree.insert(0);
+            tree.insert(-10);
+            tree.insert(3.5);
+
+            console.log(prettyPrint(tree.root));
+
+            expect(tree.includes(10)).toEqual(true);
+            expect(tree.includes(80)).toEqual(true);
+        });
+
+        it('Does nothing when a value that exists is inserted', () => {
+            //TODO: Add check with a level order callback to count number of a value
+            //Should always be one
+        });
+    });
 });
 
 

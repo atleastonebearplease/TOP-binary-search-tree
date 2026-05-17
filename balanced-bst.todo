@@ -7,7 +7,7 @@ appropriately placed
     ✔ Sort any function that is input @done(26-05-16 11:23)
     ✔ Remove duplicates (using set?) @done(26-05-16 11:23)
 
-    ☐ includes(value)
+    ✔ includes(value) @done(26-05-16 11:35)
     ☐ insert(value)
     ☐ deleteItem(value)
     ☐ levelOrderForEach(callback)

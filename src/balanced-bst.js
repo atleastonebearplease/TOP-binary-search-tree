@@ -7,7 +7,6 @@ export class Tree {
         arr.sort();
 
         arr = [...new Set(arr)]; //Combine set, which removes duplicates, with spread operator
-        console.log(arr);
 
         this.root = this.#sortedArrayToBST(arr);
         return this.root;
@@ -28,6 +27,37 @@ export class Tree {
         }
 
         return false;
+    }
+
+    insert(value) {
+        if(!this.root) {
+            this.root = new Node(value);
+            return;
+        }
+
+        let node = this.root;
+
+        while(node) {
+            if(value === node.data) return;
+
+            if(value < node.data) {
+                if(node.left) {
+                    node = node.left;
+                    continue;
+                }
+
+                node.left = new Node(value);
+                return;
+            } else {
+                if(node.right) {
+                    node = node.right;
+                    continue;
+                }
+
+                node.right = new Node(value);
+                return;
+            }
+        }
     }
 
     #sortedArrayToBST(arr) {
@@ -58,14 +88,26 @@ class Node {
 
 export const prettyPrint = (node, prefix = '', isLeft = true) => {
   if (node === null || node === undefined) {
-    return;
+    return '';
   }
 
-  prettyPrint(node.right, `${prefix}${isLeft ? '│   ' : '    '}`, false);
-  console.log(`${prefix}${isLeft ? '└── ' : '┌── '}${node.data}`);
-  prettyPrint(node.left, `${prefix}${isLeft ? '    ' : '│   '}`, true);
-}
+  const right = prettyPrint(
+    node.right,
+    `${prefix}${isLeft ? '│   ' : '    '}`,
+    false,
+  );
 
+  const current = `${prefix}${isLeft ? '└── ' : '┌── '}${node.data}\n`;
+
+  const left = prettyPrint(
+    node.left,
+    `${prefix}${isLeft ? '    ' : '│   '}`,
+    true,
+  );
+
+  return `${right}${current}${left}`;
+};
+/* 
 let tree = new Tree([1, 2, 3, 4, 5, 6, 7, 8, 9]);
 
 prettyPrint(tree.root);
@@ -82,4 +124,4 @@ console.log("Duplicate Unsorted\n\n");
 
 tree.buildTree([1, 2, 2, 3, 4, 4, 4, 4, 4, 4, 4, 5, 5, 6, 7, 8, 9, 9]);
 prettyPrint(tree.root);    
-console.log("Duplicate Sorted\n\n");
+console.log("Duplicate Sorted\n\n"); */
