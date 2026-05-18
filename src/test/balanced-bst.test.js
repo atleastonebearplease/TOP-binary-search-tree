@@ -49,17 +49,12 @@ describe('Balanced BST', () => {
             tree.insert(-10);
             tree.insert(3.5);
 
-            console.log(prettyPrint(tree.root));
-
             expect(tree.includes(10)).toEqual(true);
             expect(tree.includes(80)).toEqual(true);
         });
 
         it('Does nothing when a value that exists is inserted', () => {
             tree.insert(9);
-            console.log(prettyPrint(tree.root));
-            //TODO: Add check with a level order callback to count number of a value
-            //Should always be one
         });
     });
 
@@ -72,14 +67,12 @@ describe('Balanced BST', () => {
             tree.delete(9);
 
             expect(tree.includes(9)).toEqual(false);
-            console.log(prettyPrint(tree.root));
         });
 
         it('Removes a node with a single child', () => {
             tree.delete(8);
             expect(tree.includes(8)).toEqual(false);
             expect(tree.includes(9)).toEqual(true);
-            console.log(prettyPrint(tree.root));
         }); 
 
         it('Removes a node with two children', () => {
@@ -88,21 +81,17 @@ describe('Balanced BST', () => {
             expect(tree.includes(8)).toEqual(true);
             expect(tree.includes(9)).toEqual(true);
             expect(tree.includes(6)).toEqual(true);
-            console.log(prettyPrint(tree.root));
         });
     });
 
     describe('levelOrderForEach', () => {
         it('Executes the callback in level order', () => {
-            console.log(prettyPrint(tree.root));
-            
             let string = "";
 
             tree.levelOrderForEach((data) => {
                 string += data + " : ";
             })
 
-            console.log(string);
             expect(string).toEqual("5 : 2 : 7 : 1 : 3 : 6 : 8 : 4 : 9 : ");
         });
     });
@@ -115,7 +104,6 @@ describe('Balanced BST', () => {
                 string += data + " : ";
             })
 
-            console.log(string);
             expect(string).toEqual("5 : 2 : 1 : 3 : 4 : 7 : 6 : 8 : 9 : ");
         });
     });
@@ -128,7 +116,6 @@ describe('Balanced BST', () => {
                 string += data + " : ";
             })
 
-            console.log(string);
             expect(string).toEqual("1 : 2 : 3 : 4 : 5 : 6 : 7 : 8 : 9 : ");
         });
     });
@@ -141,8 +128,20 @@ describe('Balanced BST', () => {
                 string += data + " : ";
             })
 
-            console.log(string);
             expect(string).toEqual("1 : 4 : 3 : 2 : 6 : 9 : 8 : 7 : 5 : ");
+        });
+    });
+
+     describe('height()', () => {
+
+        it('Returns correct height of value', () => {
+            console.log(prettyPrint(tree.root) + "\nThis is the base tree");
+
+            expect(tree.height(5)).toEqual(3);
+        });
+
+        it('Returns undefined if value is not in tree', () => {
+            expect(tree.height(10)).toEqual(undefined);
         });
     });
 

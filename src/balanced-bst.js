@@ -137,15 +137,6 @@ export class Tree {
         }
     }
 
-    /* 
-        Preorder
-        root, left, right
-        Inorder
-        left, root, right
-        Postorder
-        left, right, root
-    */
-
     inOrderForEach(callback) {
         if(!this.root) return;
         if(!callback) {
@@ -219,6 +210,31 @@ export class Tree {
         }
 
         return undefined;
+    }
+
+    height(value) {
+        let height = this.#find_node_height(this.root, value);
+        
+        if(height === -1) return undefined;
+
+        return height;
+    }
+
+    #find_node_height(node, value) {
+        if(!node) return -1;
+
+        if(value === node.data)
+            return this.#heightRecur(node);
+        else if(value < node.data) 
+            return this.#find_node_height(node.left, value);
+        else
+            return this.#find_node_height(node.right, value);
+    }
+
+    #heightRecur(node) {
+        if(!node) return -1;
+
+        return 1 + Math.max(this.#heightRecur(node.left), this.#heightRecur(node.right));
     }
 }
 
