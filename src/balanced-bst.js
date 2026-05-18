@@ -115,17 +115,6 @@ export class Tree {
     }
 
     levelOrderForEach(callback) {
-        /* 
-        If there is no root, return
-        If there is no callback, throw error
-
-        Create queue
-        Add root to queue
-        While the queue is not empty
-            execute the callback on the data
-            queue the left, then right children of the node
-        */
-
         if(!callback) {
             throw new Error("A callback is required");
         }
@@ -146,6 +135,42 @@ export class Tree {
             if(node.right)
                 q.push(node.right);
         }
+    }
+
+    /* 
+        Preorder
+        root, left, right
+        Inorder
+        left, root, right
+        Postorder
+        left, right, root
+    */
+
+    inOrderForEach(callback) {
+
+    }
+
+    preOrderForEach(callback) {
+        // root, left, right
+        if(!this.root) return;
+        if(!callback) {
+            throw new Error("A callback is required");
+        }
+
+        callback(this.root.data);
+        this.#preOrderRecur(callback, this.root.left);
+        this.#preOrderRecur(callback, this.root.right);
+    }
+
+    #preOrderRecur(callback, node) {
+        if(!node) return;
+        callback(node.data);
+        this.#preOrderRecur(callback, node.left);
+        this.#preOrderRecur(callback, node.right);
+    }
+
+    postOrderForEach(callback) {
+
     }
 }
 

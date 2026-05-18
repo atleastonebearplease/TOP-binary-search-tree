@@ -93,7 +93,7 @@ describe('Balanced BST', () => {
     });
 
     describe('levelOrderForEach', () => {
-        it('Executes the callback', () => {
+        it('Executes the callback in level order', () => {
             console.log(prettyPrint(tree.root));
             
             let string = "";
@@ -104,6 +104,18 @@ describe('Balanced BST', () => {
 
             console.log(string);
             expect(string).toEqual("5 : 2 : 7 : 1 : 3 : 6 : 8 : 4 : 9 : ");
+        });
+    });
+
+    describe('preOrderForEach', () => {
+        it('Executes the callback in pre order', () => {
+            let string = "";
+
+            tree.preOrderForEach((data) => {
+                string += data + " : ";
+            })
+
+            console.log(string);
         });
     });
 });
