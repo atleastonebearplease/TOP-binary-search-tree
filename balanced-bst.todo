@@ -14,7 +14,7 @@ appropriately placed
     ✔ inOrderForEach(callback) @done(26-05-18 19:14)
     ✔ preOrderForEach(callback) @done(26-05-18 08:39)
     ✔ postOrderForEach(callback) @done(26-05-18 19:14)
-    ☐ height(value)
+    ✔ height(value) @done(26-05-18 19:21)
     ☐ depth(value)
     ☐ isBalanced()
     ☐ rebalance()

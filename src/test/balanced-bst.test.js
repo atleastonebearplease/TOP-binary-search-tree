@@ -145,6 +145,16 @@ describe('Balanced BST', () => {
             expect(string).toEqual("1 : 4 : 3 : 2 : 6 : 9 : 8 : 7 : 5 : ");
         });
     });
+
+    describe('height()', () => {
+        it('Returns correct height of value', () => {
+            expect(tree.height(9)).toEqual(3);
+        });
+
+        it('Returns undefined if value is not in tree', () => {
+            expect(tree.height(10)).toEqual(undefined);
+        });
+    });
 });
 
 

@@ -200,6 +200,26 @@ export class Tree {
         this.#postOrderRecur(callback, node.right);
         callback(node.data);
     }
+
+    height(value) {
+        if(!this.root) return false; //BST is empty
+        let node = this.root;
+        let depth = 0; 
+
+        while(node) {
+            if(value === node.data) return depth;
+
+            if(value < node.data) {
+                node = node.left;
+                depth += 1;
+            } else {
+                node = node.right;
+                depth += 1;
+            }
+        }
+
+        return undefined;
+    }
 }
 
 class Node {
