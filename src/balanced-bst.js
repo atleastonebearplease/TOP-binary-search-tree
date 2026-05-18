@@ -201,7 +201,7 @@ export class Tree {
         callback(node.data);
     }
 
-    height(value) {
+    depth(value) {
         if(!this.root) return false; //BST is empty
         let node = this.root;
         let depth = 0; 

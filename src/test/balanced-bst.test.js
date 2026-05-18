@@ -146,13 +146,13 @@ describe('Balanced BST', () => {
         });
     });
 
-    describe('height()', () => {
-        it('Returns correct height of value', () => {
-            expect(tree.height(9)).toEqual(3);
+    describe('depth()', () => {
+        it('Returns correct depth of value', () => {
+            expect(tree.depth(9)).toEqual(3);
         });
 
         it('Returns undefined if value is not in tree', () => {
-            expect(tree.height(10)).toEqual(undefined);
+            expect(tree.depth(10)).toEqual(undefined);
         });
     });
 });
