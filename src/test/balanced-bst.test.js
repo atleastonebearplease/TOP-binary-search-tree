@@ -116,6 +116,33 @@ describe('Balanced BST', () => {
             })
 
             console.log(string);
+            expect(string).toEqual("5 : 2 : 1 : 3 : 4 : 7 : 6 : 8 : 9 : ");
+        });
+    });
+
+    describe('inOrderForEach', () => {
+        it('Executes the callback in order', () => {
+            let string = "";
+
+            tree.inOrderForEach((data) => {
+                string += data + " : ";
+            })
+
+            console.log(string);
+            expect(string).toEqual("1 : 2 : 3 : 4 : 5 : 6 : 7 : 8 : 9 : ");
+        });
+    });
+
+    describe('postOrderForEach', () => {
+        it('Executes the callback in post order', () => {
+            let string = "";
+
+            tree.postOrderForEach((data) => {
+                string += data + " : ";
+            })
+
+            console.log(string);
+            expect(string).toEqual("1 : 4 : 3 : 2 : 6 : 9 : 8 : 7 : 5 : ");
         });
     });
 });

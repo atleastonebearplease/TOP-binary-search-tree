@@ -147,7 +147,21 @@ export class Tree {
     */
 
     inOrderForEach(callback) {
+        if(!this.root) return;
+        if(!callback) {
+            throw new Error("A callback is required");
+        }
 
+        this.#inOrderRecur(callback, this.root.left);
+        callback(this.root.data);
+        this.#inOrderRecur(callback, this.root.right);
+    }
+
+    #inOrderRecur(callback, node) {
+        if(!node) return;
+        this.#inOrderRecur(callback, node.left);
+        callback(node.data);
+        this.#inOrderRecur(callback, node.right);
     }
 
     preOrderForEach(callback) {
@@ -170,7 +184,21 @@ export class Tree {
     }
 
     postOrderForEach(callback) {
+        if(!this.root) return;
+        if(!callback) {
+            throw new Error("A callback is required");
+        }
 
+        this.#postOrderRecur(callback, this.root.left);
+        this.#postOrderRecur(callback, this.root.right);
+        callback(this.root.data);
+    }
+
+    #postOrderRecur(callback, node) {
+        if(!node) return;
+        this.#postOrderRecur(callback, node.left);
+        this.#postOrderRecur(callback, node.right);
+        callback(node.data);
     }
 }
 
