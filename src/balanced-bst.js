@@ -1,3 +1,5 @@
+import { LinkedList } from "./linkedList";
+
 export class Tree {
     constructor(arr) {
         this.root = this.buildTree(arr);
@@ -10,6 +12,23 @@ export class Tree {
 
         this.root = this.#sortedArrayToBST(arr);
         return this.root;
+    }
+
+    #sortedArrayToBST(arr) {
+        return this.#sortedArrayToBSTRecur(arr, 0, arr.length - 1);
+    }
+
+    #sortedArrayToBSTRecur(arr, start, end) {
+        if(start > end) return null;
+
+        let mid = start + Math.floor((end - start) / 2);
+        let root = new Node(arr[mid]);
+
+        //Divide from middle element
+        root.left = this.#sortedArrayToBSTRecur(arr, start, mid - 1);
+        root.right = this.#sortedArrayToBSTRecur(arr, mid + 1, end);
+
+        return root;
     }
 
     includes(value) {
@@ -95,21 +114,38 @@ export class Tree {
         return curr;
     }
 
-    #sortedArrayToBST(arr) {
-        return this.#sortedArrayToBSTRecur(arr, 0, arr.length - 1);
-    }
+    levelOrderForEach(callback) {
+        /* 
+        If there is no root, return
+        If there is no callback, throw error
 
-    #sortedArrayToBSTRecur(arr, start, end) {
-        if(start > end) return null;
+        Create queue
+        Add root to queue
+        While the queue is not empty
+            execute the callback on the data
+            queue the left, then right children of the node
+        */
 
-        let mid = start + Math.floor((end - start) / 2);
-        let root = new Node(arr[mid]);
+        if(!callback) {
+            throw new Error("A callback is required");
+        }
 
-        //Divide from middle element
-        root.left = this.#sortedArrayToBSTRecur(arr, start, mid - 1);
-        root.right = this.#sortedArrayToBSTRecur(arr, mid + 1, end);
+        if(!this.root) return;
 
-        return root;
+        let q = new LinkedList();
+
+        q.push(this.root);
+
+        while(q.size() !== 0) {
+            let node = q.pop();
+
+            callback(node.data);
+
+            if(node.left)
+                q.push(node.left);
+            if(node.right)
+                q.push(node.right);
+        }
     }
 }
 

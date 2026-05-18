@@ -91,6 +91,21 @@ describe('Balanced BST', () => {
             console.log(prettyPrint(tree.root));
         });
     });
+
+    describe('levelOrderForEach', () => {
+        it('Executes the callback', () => {
+            console.log(prettyPrint(tree.root));
+            
+            let string = "";
+
+            tree.levelOrderForEach((data) => {
+                string += data + " : ";
+            })
+
+            console.log(string);
+            expect(string).toEqual("5 : 2 : 7 : 1 : 3 : 6 : 8 : 4 : 9 : ");
+        });
+    });
 });
 
 
