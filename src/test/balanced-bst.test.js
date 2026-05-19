@@ -154,6 +154,17 @@ describe('Balanced BST', () => {
             expect(tree.depth(10)).toEqual(undefined);
         });
     });
+
+    describe('isBalanced()', () => {
+        it('Determines if the tree is balanced from every node', () => {
+            expect(tree.isBalanced()).toEqual(true);
+
+            tree.insert(10);
+            console.log(prettyPrint(tree.root));
+
+            expect(tree.isBalanced()).toEqual(false);
+        }); 
+    });
 });
 
 

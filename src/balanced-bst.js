@@ -236,6 +236,25 @@ export class Tree {
 
         return 1 + Math.max(this.#heightRecur(node.left), this.#heightRecur(node.right));
     }
+
+    isBalanced() {
+        if(!this.root) return false;
+
+        return this.#isBalancedRecur(this.root) > 0;
+    }
+
+    #isBalancedRecur(root) {
+        if(!root) return 0;
+
+        //Find left and right subtree heights
+        const lHeight = this.#isBalancedRecur(root.left);
+        const rHeight = this.#isBalancedRecur(root.right);
+
+        if(lHeight === -1 || rHeight === -1 || Math.abs(lHeight - rHeight) > 1)
+            return -1;
+
+        return Math.max(lHeight, rHeight) + 1; 
+    }
 }
 
 class Node {
