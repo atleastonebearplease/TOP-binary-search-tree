@@ -5,8 +5,10 @@ export class Tree {
         this.root = this.buildTree(arr);
     }
 
-    buildTree(arr) {
-        arr.sort();
+    buildTree(arr, needSort = true) {
+        if(needSort) {
+            arr.sort((a, b) => a - b);
+        }
 
         arr = [...new Set(arr)]; //Combine set, which removes duplicates, with spread operator
 
@@ -254,6 +256,24 @@ export class Tree {
             return -1;
 
         return Math.max(lHeight, rHeight) + 1; 
+    }
+
+    rebalance() {
+        /* 
+            I think the alogorithm for this is to go through inorder and create an array from all 
+            of the items. Then, we just recreate the BST with the array. 
+
+            build list with inorder traversal
+            sort it
+        */
+
+        let arr = [];
+
+        this.inOrderForEach((data) => {
+            arr.push(data);
+        })
+
+        this.buildTree(arr, false);
     }
 }
 

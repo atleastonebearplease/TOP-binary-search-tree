@@ -1,4 +1,4 @@
-☐ buildTree()
+✔ buildTree() @done(26-05-19 09:43)
 Takes an array of numbers, sorts and removes duplicates, and then creates a balanced BST full of Node objects
 appropriately placed
     ✔ Go find the resources provided that show you the algorithm for the tree @done(26-05-16 11:04)
@@ -16,8 +16,8 @@ appropriately placed
     ✔ postOrderForEach(callback) @done(26-05-18 19:14)
     ✔ height(value) @done(26-05-18 19:43)
     ✔ depth(value) @done(26-05-18 19:24)
-    ☐ isBalanced()
-    ☐ rebalance()
+    ✔ isBalanced() @done(26-05-19 08:53)
+    ✔ rebalance() @done(26-05-19 09:43)
 
 
 
